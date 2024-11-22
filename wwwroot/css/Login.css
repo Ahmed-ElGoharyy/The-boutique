@@ -1,19 +1,20 @@
-﻿/* From Uiverse.io by krlozCJ */
+﻿
 .container {
     width: 300px;
     position: center;
     border-radius: 5px;
     overflow: hidden;
+    width: 55%; 
    
-  
 }
 
-    .container .slider {
-        width: 200%;
-        position: relative;
-        transition: transform ease-out 0.8s;
-        display: flex;
-    }
+
+.container .slider {
+    width: 200%;
+    position: relative;
+    transition: transform ease-out 0.8s;
+    display: flex;
+}
 
 #register_toggle {
     display: none;
@@ -30,47 +31,52 @@
     align-items: center;
     gap: 30px;
     padding: 30px 20px;
-    width: 50%;
-    position:relative;
-    height:850px;
-   
+    margin: 30px 20px 15px 15px;
+    width: 80%;
+    position: relative;
+    height: 650px;
+    text-align: center
 }
 
 .title {
     text-align: center;
     font-weight: bold;
     font-size: 45px;
+
 }
 
 form .form_control {
     width: 100%;
     position:relative;
+  
    
 }
 
     form .form_control .label {
-        position:absolute;
+        position: absolute;
         top: 50%;
         left: 10px;
-       
+        transition: none;
         transform: translate(0%, -50%);
         font-size: 12px;
         user-select: none;
         pointer-events: none;
         color: #b0b0b0;
+        border:none;
     }
-
+    /*boxes el username wel password*/
     form .form_control .input {
         width: 100%;
         background-color: black;
         border: none;
         outline: none;
         color: #fff;
-        padding: 0.5rem;
-        font-size: 0.75rem;
+        padding: 8px;
+        font-size: 12px;
         border-radius: 5px;
         transition: box-shadow ease 0.2s;
-        box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+      
+        border-radius: 20px;
     }
 
         form .form_control .input:focus,
@@ -78,22 +84,18 @@ form .form_control {
             box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 3px 3px 4px #0e0e0e, inset -3px -3px 4px #5f5e5e;
         }
 
-            form .form_control .input:focus + .label,
-            form .form_control .input:valid + .label {
-                transform: translate(-150%, -50%);
-            }
 
+/*login button*/
 form button {
     width: 100%;
     background-color: blue;
     border: none;
     outline: none;
     color: #fff;
-    padding: 0.5rem;
-    font-size: 0.75rem;
-    border-radius: 5px;
-    transition: box-shadow ease 0.1s;
-    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 20px;
+
 }
 
     form button:active {
@@ -101,7 +103,7 @@ form button {
     }
 
 .bottom_text {
-    font-size: 0.65em;
+    font-size: 15px;
 }
 
     .bottom_text .swtich {
