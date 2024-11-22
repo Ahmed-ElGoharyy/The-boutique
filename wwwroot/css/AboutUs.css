@@ -1,5 +1,5 @@
 ﻿.btn {
-    background-color: #7da7e0; /* Adjust the color as needed */
+    background-color: #3dc5e7; /* Adjust the color as needed */
     border-color: #000000;
     color: black;
     width: 500px;
@@ -10,7 +10,7 @@
     border-width: 2px;
     border-radius: 10px;
     border-color: #000000;
-    transition-duration: 1s;
+       transition-duration: 1s;
     
 }
 
