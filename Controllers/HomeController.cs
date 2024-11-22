@@ -40,6 +40,12 @@ namespace trefle888.Controllers
 
         public IActionResult Cart()
         {
+            return View();    
+
+        }
+
+        public IActionResult Login()
+        {
             return View();
         }
 
