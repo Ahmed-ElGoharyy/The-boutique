@@ -82,7 +82,9 @@ form .form_control {
         form .form_control .input:focus,
         form .form_control .input:valid {
             box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 3px 3px 4px #0e0e0e, inset -3px -3px 4px #5f5e5e;
+
         }
+
 
 
 /*login button*/
