@@ -1,0 +1,54 @@
+﻿
+
+/*=====================Inner Body==========================*/
+ 
+    body { 
+    background-image: url(../resources/Home/Background.jpg); /*Background image cover*/
+    background-repeat: no-repeat;
+    background-position: top;
+    /*background-attachment: fixed;*/
+    background-size: contain;
+    background-color: #fff9f2;
+    height: 2000px;
+}
+
+
+    /*Body text*/
+
+.content {
+    margin-top: 10%;
+    max-width: 600px;
+    color: #fff;
+}
+
+    .content h2 {
+        font-size: 60px;
+        color: #fff;
+    }
+
+    .content p {
+        margin-top: 10px;
+        line-height: 25px;
+        color: #fff;
+    }
+
+.link {
+    margin-top: 30px;
+}
+
+.hire {
+    color: #000;
+    text-decoration: none;
+    background: #fff;
+    padding: 9px 25px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.link .hire:hover {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
