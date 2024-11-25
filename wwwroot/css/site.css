@@ -29,9 +29,15 @@ body {
  }
 
 footer {
-    z-index: 99999;
     position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align: center;
 }
+
+
 
 #homeLogoButton {
     margin-left :20px;

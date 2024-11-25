@@ -1,5 +1,5 @@
 ﻿.btn {
-    background-color: #cbcbb9; /* Adjust the color as needed */
+    background-color: #7a90cd; /* Adjust the color as needed */
     border-color: #000000;
     color: black;
     width: 500px;
@@ -10,14 +10,13 @@
     border-width: 2px;
     border-radius: 10px;
     transition-duration: 0.5s;
-    left:400px;
     
 }
 
 
 .card {
-    width:70%;
-    left: 0px;
+    width:93%;
+    position:center;
     margin-bottom: 20px;
     border-width: 5px;
     border-color: #566ba8;
@@ -29,30 +28,28 @@
 
 #placement {
     position:absolute;
-    top: 20vh; /* Make position relative to viewport height */
-    right: auto; /* Use percentage for responsive positioning */
-    left: auto; /* Reset left to prevent overlap */
+    top: 50vh; /* Make position relative to viewport height */
+
     width: 90%; /* Ensure it’s flexible with screen size */
 }
 
 #no1 {
    
-    margin-bottom: 20px;
-    bottom: 200px;
+    margin-bottom: 40px;
+    bottom: 160px;
 }
 
 #no2 {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #no3 {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
  
 #authorsButton{
 
     width:300px;
-    margin-right:195px;
 }
 #ourNames{
 
@@ -66,16 +63,15 @@
 
 
 #pageBody {
-    background-image: url(../resources/hit.png); /*Background image cover*/
-    background-repeat: no-repeat;
-    background-position: top;
-    background-attachment:local;
+    background-image:url(../resources/17580.jpg);
     background-size:cover;
-    margin-left: -107px;
-    margin-top: 85px;
-    position:center;
-    top: 0;
-    left: 0;
-    animation: fadeIn 3s ease-in-out;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-color:#adadad;
+    width:100%; /* Make sure it spans the full width */
+
+    height: 170vh; /* Full height of the viewport */
+    
+    animation: fadeIn 1.5s ease-in-out;
 }
 
