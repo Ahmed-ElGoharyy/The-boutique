@@ -9,23 +9,36 @@
     font-weight: 600;
     border-width: 2px;
     border-radius: 10px;
-    transition-duration: 0.8s;
+    transition-duration: 0.5s;
+    left:400px;
     
 }
 
 
 .card {
-    margin-bottom:20px;
-    border-width:3px;
-    border-color: #2a3b76;
-    border-radius :20px;
-    font-size:large;
+    width:70%;
+    left: 0px;
+    margin-bottom: 20px;
+    border-width: 5px;
+    border-color: #566ba8;
+    border-radius: 20px;
+    font-size: large;
+
+}
+
+
+#placement {
+    position:absolute;
+    top: 20vh; /* Make position relative to viewport height */
+    right: auto; /* Use percentage for responsive positioning */
+    left: auto; /* Reset left to prevent overlap */
+    width: 90%; /* Ensure it’s flexible with screen size */
 }
 
 #no1 {
+   
     margin-bottom: 20px;
-    bottom:200px;
-  
+    bottom: 200px;
 }
 
 #no2 {
@@ -39,6 +52,7 @@
 #authorsButton{
 
     width:300px;
+    margin-right:195px;
 }
 #ourNames{
 
@@ -52,20 +66,16 @@
 
 
 #pageBody {
-    margin-left: -107px;
-    margin-top: -15px;
-    width: 116.5%;
-    height: 100%;
-    background-image: url(../resources/hitman.jpg); /*Background image cover*/
+    background-image: url(../resources/hit.png); /*Background image cover*/
     background-repeat: no-repeat;
     background-position: top;
-    background-attachment: fixed;
-    background-size: cover;
+    background-attachment:local;
+    background-size:cover;
+    margin-left: -107px;
+    margin-top: 85px;
+    position:center;
     top: 0;
     left: 0;
-    z-index: -1;
-    background-color: #a8a694;
-    
-    animation: fadeIn 2.5s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
 }
 

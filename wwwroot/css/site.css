@@ -22,7 +22,16 @@ body {
     animation: fadeIn 0.55s ease-in-out;
     
 }
+ #header{
+     z-index: 99999;
+    position:sticky;
 
+ }
+
+footer {
+    z-index: 99999;
+    position: sticky;
+}
 
 #homeLogoButton {
     margin-left :20px;
