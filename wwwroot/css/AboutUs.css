@@ -1,8 +1,8 @@
 ﻿.btn {
-    background-color: #7a90cd; /* Adjust the color as needed */
+    background-color: #d5d9e4; /* Adjust the color as needed */
     border-color: #000000;
     color: black;
-    width: 500px;
+    width: 40%;
     height: 70px;
     text-align: center;
     font-size: xx-large;
@@ -15,11 +15,12 @@
 
 
 .card {
-    width:93%;
+    width:90%;
     position:center;
+    margin-left:5%;
     margin-bottom: 20px;
     border-width: 5px;
-    border-color: #566ba8;
+    border-color: #48547b;
     border-radius: 20px;
     font-size: large;
 
@@ -27,10 +28,11 @@
 
 
 #placement {
-    position:absolute;
-    top: 50vh; /* Make position relative to viewport height */
+    overflow: hidden; /* Prevents content from sticking out */
 
-    width: 90%; /* Ensure it’s flexible with screen size */
+    position: absolute;
+    top: 30vh; /* Make position relative to viewport height */
+    width: 80%; /* Ensure it’s flexible with screen size */
 }
 
 #no1 {
@@ -49,7 +51,7 @@
  
 #authorsButton{
 
-    width:300px;
+    width: 25%;
 }
 #ourNames{
 
@@ -63,15 +65,17 @@
 
 
 #pageBody {
-    background-image:url(../resources/17580.jpg);
-    background-size:cover;
-    background-attachment:fixed;
-    background-repeat:no-repeat;
-    background-color:#adadad;
-    width:100%; /* Make sure it spans the full width */
-
-    height: 170vh; /* Full height of the viewport */
-    
-    animation: fadeIn 1.5s ease-in-out;
+    background-image: url(../resources/ab.jpg);
+    background-size: auto;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #adadad;
+    width: 100%; /* Make sure it spans the full width */
+    min-width: 70%;
+    min-height: 80%;
+    height: 160vh; /* Full height of the viewport */
+    animation: fadeIn 2s ease-in-out;
+    overflow-x: hidden;
+    overflow-y: hidden; /* This will prevent horizontal scrolling */
 }
 

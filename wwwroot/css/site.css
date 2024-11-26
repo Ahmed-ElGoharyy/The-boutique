@@ -13,13 +13,15 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+  
 }
 
 body {
     margin-bottom: 45px;
     animation: fadeIn 0.55s ease-in-out;
+    overflow-x:hidden;
     
 }
  #header{
@@ -29,7 +31,7 @@ body {
  }
 
 footer {
-    position: sticky;
+    position: absolute;
     bottom: 0;
     width: 100%;
     background-color: white;
