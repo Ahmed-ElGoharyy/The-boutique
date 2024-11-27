@@ -1,0 +1,101 @@
+﻿
+.form {
+    position: center;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+    height:50%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+    margin-left:30%;
+    margin-top:15%;
+}
+
+    .form .title {
+        margin-bottom:5%;
+        color: royalblue;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form input {
+        outline: 0;
+        border: 1px solid rgb(219, 213, 213);
+        padding: 8px 14px;
+        border-radius: 8px;
+        width: 100%;
+        height: 50px;
+    }
+
+    .form textarea {
+        border-radius: 8px;
+        height: 100px;
+        width: 100%;
+        resize: none;
+        outline: 0;
+        padding: 8px 14px;
+        border: 1px solid rgb(219, 213, 213);
+    }
+
+/* From Uiverse.io by BHARGAVPATEL1244 */
+button {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 0.9rem 2rem;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #e1e1e1;
+    color: ghostwhite;
+}
+
+    button span {
+        position: relative;
+        z-index: 10;
+        transition: color 0.4s;
+    }
+
+    button:hover span {
+        color: #0060cb;
+    }
+
+    button::before,
+    button::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    button::before {
+        content: "";
+        background: #0060cb;
+        width: 120%;
+        left: -10%;
+        transform: skew(30deg);
+        transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    }
+
+    button:hover::before {
+        transform: translate3d(100%, 0, 0);
+    }
+
