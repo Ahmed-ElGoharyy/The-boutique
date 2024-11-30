@@ -1,14 +1,9 @@
 ﻿
 
 /*=====================Inner Body==========================*/
- 
-    body { 
-    background-image: url(../resources/Home/Background.jpg); /*Background image cover*/
-    background-repeat: no-repeat;
-    background-position: top;
-    /*background-attachment: fixed;*/
-    background-size: contain;
-    background-color: #fff9f2;
+
+body {
+    background-color: #d5d5d5;
     height: 2000px;
 }
 
@@ -16,20 +11,20 @@
     /*Body text*/
 
 .content {
-    margin-top: 10%;
+    margin-top: 260px;
     max-width: 600px;
     color: #fff;
 }
 
     .content h2 {
         font-size: 60px;
-        color: #fff;
+        color: black;
     }
 
     .content p {
         margin-top: 10px;
         line-height: 25px;
-        color: #fff;
+        color: #191922;
     }
 
 .link {
@@ -49,6 +44,55 @@
 .link .hire:hover {
     background: transparent;
     border: 1px solid #fff;
-    color: #fff;
+    color: brown;
+}
+
+.page1__photo1{
+    margin-top:-430px;
+    margin-left: 600px;
+    
+}
+
+
+.mySwiper {
+    position: relative;
+    height: 700px;
+
+}
+
+swiper-container {
+      margin-left: -200px;
+      width: 800px;
+      height: 100%;
+      margin-top: 190px;
+      z-index: 0;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+    /*  background: #fff; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+        swiper-slide img {
+            display: block;
+            width: 700px;
+            height: 700px;
+            object-fit: cover;
+        }
+
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (max-width: 601px) {
+    .content p {
+        color: transparent;
+    }
+    .content h2 {
+        color: transparent;
+    }
+
 }
 
