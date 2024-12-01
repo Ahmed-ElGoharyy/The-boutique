@@ -7,6 +7,8 @@ html {
     font-size: 16px;
   }
 }
+ 
+
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -24,14 +26,10 @@ body {
     overflow-x:hidden;
     
 }
- #header{
-     z-index: 99999;
-    position:sticky;
-
- }
+ 
 
 footer {
-    position: absolute;
+    position: sticky;
     bottom: 0;
     width: 100%;
     background-color: white;
@@ -41,29 +39,28 @@ footer {
 
 
 
-#homeLogoButton {
-    margin-left :20px;
-    margin-bottom : 5px;
-    margin-top: 5px;
-    margin-right:100px;
-    width :120px;
-    height:80px;
-    
-} #navLogos {
-      margin-left: 60px;
-      font-size :larger;
-  }
+    .nav-item {
+        margin-left: 130px;
+        font-size: large;
+        font-weight: 400;
+    }
 
-  #aboutUs {
-      text-align:center;
-      margin-left:600px;
-  }
+    #shopButton {
+        font-size: larger;
+        font-weight: 500;
+    }
 
-#accLogo {
-    width: 50px;
-    height: 50px;
-    margin-left :400px;
-}
+    #cartButton {
+        margin-left: 220px;
+    }
+
+    #accButton {
+        margin-left: 10px;
+    }
+
+
+
+
 
 /* transition code */
 
