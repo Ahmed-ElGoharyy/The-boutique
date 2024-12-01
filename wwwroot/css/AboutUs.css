@@ -1,44 +1,57 @@
 ﻿.btn {
-    background-color: #cbcbb9; /* Adjust the color as needed */
+    background-color: #d5d9e4; /* Adjust the color as needed */
     border-color: #000000;
     color: black;
-    width: 500px;
+    width: 40%;
     height: 70px;
     text-align: center;
     font-size: xx-large;
     font-weight: 600;
     border-width: 2px;
     border-radius: 10px;
-    transition-duration: 0.8s;
+    transition-duration: 0.5s;
     
 }
 
 
 .card {
-    margin-bottom:20px;
-    border-width:3px;
-    border-color: #2a3b76;
-    border-radius :20px;
-    font-size:large;
+    width:90%;
+    position:center;
+    margin-left:5%;
+    margin-bottom: 20px;
+    border-width: 5px;
+    border-color: #48547b;
+    border-radius: 20px;
+    font-size: large;
+
+}
+
+
+#placement {
+    overflow: hidden; /* Prevents content from sticking out */
+
+    position: absolute;
+    top: 30vh; /* Make position relative to viewport height */
+    width: 80%; /* Ensure it’s flexible with screen size */
 }
 
 #no1 {
-    margin-bottom: 20px;
-    bottom:200px;
-  
+   
+    margin-bottom: 40px;
+    bottom: 160px;
 }
 
 #no2 {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #no3 {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
  
 #authorsButton{
 
-    width:300px;
+    width: 25%;
 }
 #ourNames{
 
@@ -52,20 +65,17 @@
 
 
 #pageBody {
-    margin-left: -107px;
-    margin-top: -15px;
-    width: 116.5%;
-    height: 100%;
-    background-image: url(../resources/hitman.jpg); /*Background image cover*/
-    background-repeat: no-repeat;
-    background-position: top;
+    background-image: url(../resources/ab.jpg);
+    background-size: auto;
     background-attachment: fixed;
-    background-size: cover;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-color: #a8a694;
-    
-    animation: fadeIn 2.5s ease-in-out;
+    background-repeat: no-repeat;
+    background-color: #adadad;
+    width: 100%; /* Make sure it spans the full width */
+    min-width: 70%;
+    min-height: 80%;
+    height: 160vh; /* Full height of the viewport */
+    animation: fadeIn 2s ease-in-out;
+    overflow-x: hidden;
+    overflow-y: hidden; /* This will prevent horizontal scrolling */
 }
 

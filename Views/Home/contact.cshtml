@@ -1,0 +1,45 @@
+﻿<link rel="stylesheet" href="~/css/contact.css" asp-append-version="true" />
+<div class="container-fluid text-center">
+    <form class="form" id="contact-form">
+        <div class="title">Contact us</div>
+        <input type="email" placeholder="Your email" class="input" id="email-input">
+        <textarea placeholder="Your message" id="message-input"></textarea>
+        <button type="submit" class="text-center">
+            <span>Submit</span>
+        </button>
+    </form>
+</div>
+
+<div class="alert alert-success alert-dismissible fade d-none text-capitalize text-center" role="alert" id="success-alert">
+    <h5 class="alert-heading">Message received!</h5>
+    <hr />
+    <p>Thanks for your feedback!<br />Wait for our response</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get the values from the form inputs
+        var emailInput = document.getElementById('email-input');
+        var messageInput = document.getElementById('message-input');
+
+        // Perform any validation or processing here
+
+        // Show the alert
+        var successAlert = document.getElementById('success-alert');
+        successAlert.classList.remove('d-none');
+        successAlert.classList.add('show'); // Add the 'show' class to make the alert visible
+
+        // Close the alert after 3 seconds
+       setTimeout(function() {
+            successAlert.classList.remove('show');
+            successAlert.classList.add('d-none');
+        }, 8000);
+
+        // Clear the form inputs
+        emailInput.value = '';
+        messageInput.value = '';
+    });
+</script>
