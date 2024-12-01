@@ -48,6 +48,10 @@ namespace trefle888.Controllers
         {
             return View();
         }
+        public IActionResult v1()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

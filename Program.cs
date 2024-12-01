@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using trefle888.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<trefle888Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("trefle888Context") ?? throw new InvalidOperationException("Connection string 'trefle888Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
