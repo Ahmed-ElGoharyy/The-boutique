@@ -8,19 +8,38 @@
 
 <div class="page1__container">
     
-    
-    
     <div class="home__content">
         <div class="content">
-            <h2>Trefle-8,<br>Elevate Your Style With a Tailored Suit</h2>
+            <h2>Trefle-&,<br>Elevate Your Style With a Tailored Suit</h2>
             <p>We provide the best tailored suits in the market made specially for you to suit any occasion.</p>
         </div>
         <div class="link">
-            <a href="#" class="hire">Shop Now</a>
+            <a class="hire" asp-area="" asp-controller="Home" asp-action="Shop">Shop Now</a>
         </div>
     </div>
 
+    <div class="page1__photo1">
+        <img src="./resources/Home/grey suit.png" alt="Girl in a jacket" width="800" height="700">
+    </div>
 
+ 
+
+    <div>
+        <swiper-container class="mySwiper" pagination="true" pagination-dynamic-bullets="true">
+            <swiper-slide><img src="./resources/Home/black tuxedo.png" ></swiper-slide>
+            <swiper-slide><img src="./resources/Home/bb-blue suit 1.png"></swiper-slide>
+            <swiper-slide><img src="./resources/Home/grey suit.png"></swiper-slide>
+            <swiper-slide><img src="./resources/Home/grey coat.png"></swiper-slide>
+        </swiper-container>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    </div>
+
+    <!--<div class="bottom_imagetext">
+        <img src="./resources/Home/Sale icon.png" width="200px">
+	</div>-->
+
+    
 
 </div>
-
