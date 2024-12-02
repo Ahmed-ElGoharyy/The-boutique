@@ -1,6 +1,8 @@
 ﻿
 <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
- 
+<script src="~/js/Login.js"></script>
+
+
 <div class="container">
     
     <input type="checkbox" id="register_toggle">
@@ -8,7 +10,7 @@
     <div class="slider">
 
 
-        <form class="form" >
+        <form class="form" onsubmit="validateForm(event)" >
 
             <img src="~/resources/logo.png" height="90" width="110" />
             <span class="title">Login</span>
@@ -28,7 +30,7 @@
 
          
 
-        <form class="form">
+        <form class="form" onsubmit="validateForm(event)">
             <img src="~/resources/logo.png"  height="90" width="110"/>
 
             <span class="title">Sign Up</span>
@@ -53,9 +55,7 @@
     </div>
 </div>
 
-
-
-
+ 
 
 
 

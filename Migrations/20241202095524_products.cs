@@ -5,7 +5,7 @@
 namespace trefle888.Migrations
 {
     /// <inheritdoc />
-    public partial class products : Migration
+    public partial class Products : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

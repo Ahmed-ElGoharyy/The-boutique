@@ -12,7 +12,7 @@ namespace trefle888.Migrations
 {
     [DbContext(typeof(ProductContext))]
     [Migration("20241202095524_products")]
-    partial class products
+    partial class Products
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
