@@ -114,9 +114,14 @@ form button {
         font-weight: 700;
         cursor: pointer;
     }
-    
 
+.error-message {
+    color: #ff3333;
+    font-size: 12px;
+    margin-top: 5px;
+}
 
-
-
+.input-error {
+    border-color: #ff3333;
+}
 
