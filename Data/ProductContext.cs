@@ -9,7 +9,7 @@ namespace trefle888.Data
 {
     public class ProductContext : DbContext
     {
-        public ProductContext (DbContextOptions<ProductContext> options)
+        public ProductContext(DbContextOptions<ProductContext> options)
             : base(options)
         {
         }
