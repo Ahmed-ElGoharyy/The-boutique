@@ -20,8 +20,8 @@ namespace trefle888.Data
                 new Product { id = 2, Name = "REGULAR FIT PREMIUM WOOL DOUBLE BREASTED BLAZER", Price = 9740, Image = "resources/suit2.jpg" },
                 new Product { id = 3, Name = "REGULAR FIT PREMIUM WOOL BLAZER", Price = 8250, Image = "resources/suit3.jpg" },
                 new Product { id = 4, Name = "SLIM FIT TRAVELER BlAZER", Price = 5250, Image = "~/resources/suit4.jpg" },
-                new Product { id = 5, Name = "CEREMONIAL SMART FIT SUIT", Price = 13,722, Image = "~/reources/suit5.jpg"},
-                new Product { id = 6, Name = "SLIM FIT 100% PREMIUM WOOL BLAZER", Price = 11, 722, Image = "~/reources/suit6.jpg" }
+                new Product { id = 5, Name = "CEREMONIAL SMART FIT SUIT", Price = 9722, Image = "~/reources/suit5.jpg"},
+                new Product { id = 6, Name = "SLIM FIT 100% PREMIUM WOOL BLAZER", Price = 10000, Image = "~/reources/suit6.jpg" }
             );
         }
 
