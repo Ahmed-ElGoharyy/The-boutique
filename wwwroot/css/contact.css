@@ -1,4 +1,7 @@
-﻿
+﻿body{
+    background-color:#e3e3e3;
+
+}
 .form {
     position: center;
     display: flex;
@@ -100,7 +103,7 @@ button {
     }
 
     #success-alert{
-        width:30%;
+        width:25%;
         height:5%;
         left:75%;
         bottom:30%;
