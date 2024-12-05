@@ -1,5 +1,5 @@
 ﻿.btn {
-    background-color: #d5d9e4; /* Adjust the color as needed */
+    background-color: #e8eaef; /* Adjust the color as needed */
     border-color: #000000;
     color: black;
     width: 40%;
@@ -7,7 +7,7 @@
     text-align: center;
     font-size: clamp(18px, 2vw, 2vw);
     font-weight: 600;
-    border-width: 2px;
+    border-width: 3px;
     border-radius: 10px;
     transition-duration: 0.5s;
 }
@@ -18,7 +18,7 @@
     position:center;
     margin-left:5%;
     margin-bottom: 20px;
-    border-width: 5px;
+    border-width: 6px;
     border-color: #48547b;
     border-radius: 20px;
     font-size: large;
