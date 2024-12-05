@@ -32,11 +32,11 @@
         successAlert.classList.remove('d-none');
         successAlert.classList.add('show'); // Add the 'show' class to make the alert visible
 
-        // Close the alert after 3 seconds
+        // Close the alert after n seconds
        setTimeout(function() {
             successAlert.classList.remove('show');
             successAlert.classList.add('d-none');
-        }, 8000);
+        }, 6000);
 
         // Clear the form inputs
         emailInput.value = '';

@@ -7,6 +7,14 @@
     "mssql2": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:ProductContext"
+    },
+    "mssql3": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Usertest"
+    },
+    "mssql4": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:UserContext"
     }
   }
 }

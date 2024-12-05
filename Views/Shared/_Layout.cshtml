@@ -34,8 +34,8 @@
 
                 <div class="collapse navbar-collapse " id="navbarContent">
 
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center align-items-center">
-                        <li class="nav-item dropdown">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center align-items-center" >
+                        <li class="nav-item dropdown"> 
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
                         </li>
 
@@ -44,18 +44,18 @@
                                 Shop
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="Shop">
-                                <li><a class="dropdown-item" href="Shop">Suits</a></li>
-                                <li><a class="dropdown-item" href="Shop">Ties</a></li>                             
-                                <li><a class="dropdown-item" href="Shop">Accessories</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Shop">Suits</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Shop">Ties</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Shop">Accessories</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link" id="aboutUs" href="/Home/AboutUs">About Us</a>
+                            <a class="nav-link" id="aboutUs" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
                         </li>
 
                         <li class="nav-item dropdown" id="cartButton">
-                            <a class="navbar-brand" href="/Home/Cart">
+                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Cart">
                                 <img src="/resources/cart.png" id="accountLogo" alt="Acclogo" width="50" height="50" class="d-inline-block align-text-center" />
                             </a>
                         </li>
@@ -92,16 +92,12 @@
     </div>
 </body>
   
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-
 </html>
-<footer class="footer fixed-bottom py-3 bg-light  text-muted  mt-auto ">
-    <div id="footerText" class="container text-center">
-        &copy; 2024 - Trefle-8   
-    </div>
 
-</footer>
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)

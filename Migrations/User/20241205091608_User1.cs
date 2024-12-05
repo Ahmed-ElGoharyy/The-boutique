@@ -2,27 +2,26 @@
 
 #nullable disable
 
-namespace trefle888.Migrations
+namespace trefle888.Migrations.User
 {
     /// <inheritdoc />
-    public partial class Products : Migration
+    public partial class User1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Product",
+                name: "Users",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    username = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
         }
 
@@ -30,7 +29,7 @@ namespace trefle888.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "Users");
         }
     }
 }

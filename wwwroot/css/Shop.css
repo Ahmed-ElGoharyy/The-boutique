@@ -1,14 +1,15 @@
-#caption{
+#caption {
     font-size: large;
     color: gray;
-    margin-bottom: 3px;
+    margin-bottom: 1px;
 }
-#price{
-    font-size: medium;
+
+#price {
+    font-size: large;
     color: red;
 }
-.container{
+
+#test {
     margin-top: 100px;
+    height: 150vh;
 }
-
-

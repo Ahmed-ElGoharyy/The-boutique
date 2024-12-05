@@ -7,13 +7,13 @@ using trefle888.Models;
 
 namespace trefle888.Data
 {
-    public class ProductContext : DbContext
+    public class UserContext : DbContext
     {
-        public ProductContext(DbContextOptions<ProductContext> options)
+        public UserContext (DbContextOptions<UserContext> options)
             : base(options)
         {
         }
 
-        public DbSet<trefle888.Models.Product> Product { get; set; } = default!;
+        public DbSet<trefle888.Models.Users> Users { get; set; } = default!;
     }
 }
