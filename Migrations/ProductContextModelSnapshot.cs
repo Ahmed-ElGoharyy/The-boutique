@@ -16,18 +16,22 @@ namespace trefle888.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.11")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("trefle888.Models.Product", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .IsRequired()
@@ -40,39 +44,13 @@ namespace trefle888.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.HasKey("id");
+                    b.PrimitiveCollection<string>("sizes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Product");
-
-                    b.HasData(
-                        new
-                        {
-                            id = 1,
-                            Image = "resources/suit1.jpg",
-                            Name = "REGULAR FIT TRAVELER BLAZER",
-                            Price = 6599.0
-                        },
-                        new
-                        {
-                            id = 2,
-                            Image = "resources/suit2.jpg",
-                            Name = "REGULAR FIT PREMIUM WOOL DOUBLE BREASTED BLAZER",
-                            Price = 9740.0
-                        },
-                        new
-                        {
-                            id = 3,
-                            Image = "resources/suit3.jpg",
-                            Name = "REGULAR FIT PREMIUM WOOL BLAZER",
-                            Price = 8250.0
-                        },
-                        new
-                        {
-                            id = 4,
-                            Image = "~/resources/suit4.jpg",
-                            Name = "SLIM FIT TRAVELER BlAZER",
-                            Price = 5250.0
-                        });
                 });
 #pragma warning restore 612, 618
         }
