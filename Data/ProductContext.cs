@@ -9,10 +9,7 @@ namespace trefle888.Data
 {
     public class ProductContext : DbContext
     {
-        public ProductContext (DbContextOptions<ProductContext> options)
-            : base(options)
-        {
-        }
+        public ProductContext (DbContextOptions<ProductContext> options) : base(options) {}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Product>().HasData(
