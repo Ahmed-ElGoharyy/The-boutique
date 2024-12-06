@@ -58,8 +58,9 @@ footer {
         margin-left: 10px;
     }
 
-
-
+#shopButton:hover {
+color: white;
+}
 
 
 /* transition code */
