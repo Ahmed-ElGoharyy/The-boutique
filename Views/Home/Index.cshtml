@@ -4,26 +4,39 @@
 
 <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
 <script src="~/js/Index.jsasp-append-version="true"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" asp-append-version="true" />
+
 
 
 <div class="page1__container">
     
     <div class="home__content">
-        <div class="content">
-            <h2>Trefle-&,<br>Elevate Your Style With a Tailored Suit</h2>
-            <p>We provide the best tailored suits in the market made specially for you to suit any occasion.</p>
+        <div class="content1">
+            <h2 id="trefle8_hometext" data-aos="fade-right" data-aos-duration="1400">Trefle-&,</h2><h2 id="big_home_text" data-aos="zoom-in-left" data-aos-duration="1400" data-aos-delay="200">Elevate Your Style With a Tailored Suit</h2>
+            <p data-aos="zoom-in-left" data-aos-duration="3000" data-aos-delay="1500">We provide the best tailored suits in the market made specially for you to suit any occasion.</p>
         </div>
-        <div class="link">
+        <div class="link" data-aos="flip-down" data-aos-duration="1400" >
             <a class="hire" asp-area="" asp-controller="Home" asp-action="Shop">Shop Now</a>
         </div>
+       
     </div>
 
-    <div class="page1__photo1">
-        <img src="./resources/Home/grey suit.png" alt="Girl in a jacket" width="800" height="700">
+    <div class="page1__photo1" data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1500">
+        <img src="./resources/Home/grey suit.png" alt="Girl in a jacket" width="700" height="600">
     </div>
+
+    <div class="socials">
+        <a href="https://www.facebook.com/" data-aos="fade-in" data-aos-duration="1400" data-aos-delay="600"><i class="ri-meta-line"></i></a>
+        <a href="https://www.youtube.com/" data-aos="fade-in" data-aos-duration="1400" data-aos-delay="800"><i class="ri-youtube-fill"></i></a>
+        <a href="https://x.com/" data-aos="fade-in" data-aos-duration="1400" data-aos-delay="1000"><i class="ri-twitter-x-line"></i></a>
+    </div>
+
+
+
 
  
-
+    <!--
     <div>
         <swiper-container class="mySwiper" pagination="true" pagination-dynamic-bullets="true">
             <swiper-slide><img src="./resources/Home/black tuxedo.png" ></swiper-slide>
@@ -35,11 +48,16 @@
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     </div>
-
+    -->
     <!--<div class="bottom_imagetext">
         <img src="./resources/Home/Sale icon.png" width="200px">
 	</div>-->
 
-    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset:1,
+        });
+    </script>
 
 </div>

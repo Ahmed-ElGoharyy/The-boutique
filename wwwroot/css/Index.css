@@ -2,29 +2,36 @@
 
 /*=====================Inner Body==========================*/
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #d5d5d5;
-    height: 2000px;
+    /* height: 2000px; */
+
 }
 
 
     /*Body text*/
 
-.content {
-    margin-top: 260px;
+.content1 {
+    margin-top: 250px;
     max-width: 600px;
     color: #fff;
 }
 
-    .content h2 {
+
+    .content1 h2 {
         font-size: 60px;
         color: black;
     }
 
-    .content p {
+    .content1 p {
         margin-top: 10px;
         line-height: 25px;
         color: #191922;
+        font-size: 20px;
     }
 
 .link {
@@ -42,18 +49,19 @@ body {
 }
 
 .link .hire:hover {
+    transition: all 0.8s ease;
     background: transparent;
     border: 1px solid #fff;
     color: brown;
 }
 
 .page1__photo1{
-    margin-top:-430px;
+    display:flex;
+    margin-top:-480px;
     margin-left: 600px;
-    
 }
 
-
+/*
 .mySwiper {
     position: relative;
     height: 700px;
@@ -71,8 +79,8 @@ swiper-container {
     swiper-slide {
       text-align: center;
       font-size: 18px;
-    /*  background: #fff; */
-      display: flex;
+    /*
+       display: flex;
       justify-content: center;
       align-items: center;
     }
@@ -83,16 +91,91 @@ swiper-container {
             height: 700px;
             object-fit: cover;
         }
-
+ */
 
 /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
-@media screen and (max-width: 601px) {
-    .content p {
-        color: transparent;
+
+
+.socials {
+    position: absolute;
+    padding: 0 7%;
+    transform: translateY(-50%);
+    margin-left: -190px;
+    margin-top: -50px;
+}
+
+    .socials a {
+        color: black;
+        font-size: 23px;
+        transition: all .6s;
+        margin-left: 100px;
+        text-decoration:none;
     }
-    .content h2 {
-        color: transparent;
+       /* .socials a :hover {
+            transform: translate(3ch, 3mm);
+            transition: 0.8s;
+            color: brown;
+        }*/
+
+.ri-meta-line:hover {
+    transition: 0.8s;
+    color: blue;
+}
+
+.ri-youtube-fill:hover {
+    transition: 0.8s;
+    color: red;
+}
+
+.ri-twitter-x-line:hover {
+    transition: 0.8s;
+    color: white;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    
+    .homecontent{
+        align-self:center;
+    }
+    .page1__photo1 {
+        margin-left: 0;
+        margin-top: 00px;
+        transition: 0.6s ease;
+    }
+
+    #trefle8_hometext{
+        margin-top:-150px;
+    }
+
+    #big_home_text{
+        margin-top: 20px;
+        margin-bottom:30px;
+    }
+
+    .home__content p{
+        font-size: 15px;
+    }
+
+    .link{
+        margin-top: 60px;
+    }
+
+    .socials{
+        margin-top: 200px;
+        margin-left:0px;
+        padding-bottom: 100px;
     }
 
 }
 
+
+@media screen and (max-width: 560px) {
+    .page1__photo1{
+        display: none;
+        transition-delay: 5s;
+        transition: ease-out;
+    }
+
+}
