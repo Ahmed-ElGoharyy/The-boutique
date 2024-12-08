@@ -1,10 +1,11 @@
-﻿
+﻿@model IEnumerable<trefle888.Models.Users>
+
 <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
 <script src="~/js/Login.js"></script>
 
 
 <div class="container">
-    
+
     <input type="checkbox" id="register_toggle">
 
     <div class="slider">
@@ -20,7 +21,7 @@
 
             <div class="form_control">
                 <input type="password" id="login_password" class="input" placeholder="Password" required="">
-                
+
             </div>
             <button><strong>Login</strong></button>
 
@@ -28,7 +29,7 @@
 
         </form>
 
-         
+
 
         <form class="form" onsubmit="validateForm(event)">
             <img src="~/resources/logo.png"  height="90" width="110"/>
@@ -36,15 +37,15 @@
             <span class="title">Sign Up</span>
             <div class="form_control">
                 <input type="text" id="signup_username" class="input" placeholder="Username" required="">
-               
+
             </div>
             <div class="form_control">
                 <input type="email" id="signup_email" class="input" placeholder="Email" required="">
-                
+
             </div>
             <div class="form_control">
                 <input type="password" id="signup_password" class="input" placeholder="Password" required="">
-               
+
             </div>
             <button><strong>Sign Up</strong></button>
 
@@ -54,7 +55,6 @@
 
     </div>
 </div>
-
 
 
  

@@ -9,6 +9,7 @@ using trefle888.Data;
 using trefle888.Models;
 
 namespace trefle888.Controllers
+
 {
     public class ProductsController : Controller
     {
@@ -23,6 +24,12 @@ namespace trefle888.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Product.ToListAsync());
+        }
+
+        public async Task<IActionResult> Shop()
+        {
+            var products = await _context.Product.ToListAsync();
+            return View(products);
         }
 
         // GET: Products/Details/5
