@@ -7,7 +7,7 @@
         @foreach (var product in Model)
         {
             <figure class="col-sm-6 col-lg-4">
-                <img src="@Url.Content("~/" + product.Image)" class="img-fluid rounded" alt="@product.Name" width="400" height="500" />
+                <img src="@product.Image" class="img-fluid rounded" alt="@product.Name not found" width="400" height="500" />
                 <figcaption>
                     <p id="caption">@product.Name</p>
                     <p id="price">EGP @product.Price</p>
