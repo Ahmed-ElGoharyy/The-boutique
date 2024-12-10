@@ -130,3 +130,10 @@ form button {
     font-weight:600;
     margin-left:0%;
 }
+
+#message1 {
+    font-size: larger;
+    font-weight: 600;
+    margin-left: 0%;
+    color:#256505
+}

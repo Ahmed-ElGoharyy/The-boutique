@@ -103,6 +103,7 @@ button {
     }
 
     #success-alert{
+        background-color:#89c69a;
         width:25%;
         height:5%;
         left:75%;

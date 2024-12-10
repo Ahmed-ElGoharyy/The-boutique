@@ -4,6 +4,12 @@ namespace trefle888.Models
 {
     public class Users
     {
+        public Users(string username, string password)
+        {
+            this.username = username;
+            this.password = password;
+        }
+
         public int Id { get; set; }
 
         [Required]
