@@ -66,7 +66,6 @@ function validateForm(event) {
         }
 
         if (isValid) {
-            alert("Login successful!");
             form.reset();
         }
     } else if (formTitle === "Sign Up") {

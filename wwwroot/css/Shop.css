@@ -1,3 +1,4 @@
+
 #caption {
     font-size: large;
     color: gray;
@@ -8,7 +9,44 @@
     font-size: large;
     color: red;
 }
+.sizes-overlay {
+    position: absolute;/*3l4ane tb2a related le figure*/
+    top: 0;
+    left: 0;
+    width: 100%; /*dol 3l4ane ykono mzbota 3la 2d ely height wa width bta3 el div*/
+    height: 100%; 
+    display: flex;/*3l4ane button tkon mtwz3a mzbote*/
+    justify-content: center;/*yb2a m7tot horzontally fy nos*/
+    align-items: center;/*byzbtha veertically*/
+    gap: 10px;/* gap between sizes*/
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    z-index: 2;/*3l4ane tzhr 2odam elimage m4 wraha*/
+}
 
+
+figure:hover .sizes-overlay {
+    opacity: 1;
+}
+
+/* Size buttons styling */
+.size {
+    font-size: 14px;
+    color: #0b0000;
+    padding: 8px 12px;/*padding inside the button*/
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;/*bt7km fy shkl button*/
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.size:hover {
+    background-color: #808182;
+}
+
+/* Container styling */
 #test {
     margin-top: 100px;
     height: 150vh;

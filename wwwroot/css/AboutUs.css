@@ -14,15 +14,16 @@
 
 
 .card {
-    width:90%;
-    position:center;
-    margin-left:5%;
+    padding: 2.5%;
+    width: 90%;
+    position: center;
+    margin-left: 5%;
     margin-bottom: 20px;
     border-width: 6px;
     border-color: #48547b;
     border-radius: 20px;
     font-size: large;
-
+    font-weight: 600;
 }
 
 
@@ -60,7 +61,10 @@
 
 }
 
-
+#missionCollapse{
+    width:60%;
+    margin-left:20%;
+}
 
 
 #pageBody {
