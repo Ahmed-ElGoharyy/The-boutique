@@ -1,18 +1,27 @@
 ﻿@model IEnumerable<trefle888.Models.Product>
 
 
-<link rel="stylesheet" href="~/css/shop.css" />
-<div class="container">
+<link rel="stylesheet" href="~/css/Shop.css" />
+
+<div class="container" id="position">
     <div class="row">
-        @foreach (var product in Model)
-        {
+      @foreach (var product in Model)
+       {
             <figure class="col-sm-6 col-lg-4">
                 <img src="@product.Image" class="img-fluid rounded" alt="@product.Name not found" width="400" height="500" />
+                <div class="sizes-overlay"id="sizes">
+                  <button class="size" onclick="addToCart(38)">38</button>
+                 <button class="size" onclick="addToCart(40)">40</button>
+                 <button class="size" onclick="addToCart(42)">42</button>
+                 <button class="size" onclick="addToCart(44)">44</button>
+                 <button class="size" onclick="addToCart(46)">46</button>
+                 <button class="size" onclick="addToCart(48)">48</button>
+               </div>
                 <figcaption>
                     <p id="caption">@product.Name</p>
                     <p id="price">EGP @product.Price</p>
                 </figcaption>
             </figure>
-        }
+       }
     </div>
 </div>
