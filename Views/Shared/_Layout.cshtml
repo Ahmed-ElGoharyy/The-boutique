@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />              
     <link rel="stylesheet" href="~/trefle888.styles.css" asp-append-version="true" />
 
-   
+
 </head>
 <body>
     <header id="header">
@@ -25,7 +25,7 @@
                 </a>
 
 
-         <!-- toggle button -->
+                <!-- toggle button -->
                 <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -64,7 +64,17 @@
                         <li class="nav-item dropdown" id="accButton">
                             <a class="navbar-brand" href="/Home/Login">
                                 <img src="/resources/account.png" id="accountLogo" alt="Acclogo" width="50" height="50" class="d-inline-block align-text-center">
-                                &nbsp; My Account
+                                @if (TempData["SuccessMessage"] != null)
+                                {
+
+                                    <strong id="UserDisplay">Hi, @TempData["SuccessMessage"]</strong>
+                                    TempData.Keep();
+                                }
+                                else{
+                                    <strong id="UserDisplay"> &nbsp; My Account</strong>
+                                }                  
+                               
+                               
                             </a>
                         </li>
 

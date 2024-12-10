@@ -125,3 +125,8 @@ form button {
     border-color: #ff3333;
 }
 
+#message{
+    font-size:larger;
+    font-weight:600;
+    margin-left:0%;
+}

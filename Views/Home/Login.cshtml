@@ -11,16 +11,22 @@
     <div class="slider">
 
 
-        <form class="form" onsubmit="validateForm(event)" >
+        <form asp-action="LoginLogic" method="post" class="form" >
 
             <img src="~/resources/logo.png" height="90" width="110" />
             <span class="title">Login</span>
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div id="message" class="error-message">@TempData["ErrorMessage"]</div>
+                TempData.Clear();
+
+            }
             <div class="form_control">
-                <input type="text" id="login_username" class="input" placeholder="Username"  required=""> 
+                <input type="text" name="Username" id="login_username" class="input" placeholder="Username"  required=""> 
             </div>
 
             <div class="form_control">
-                <input type="password" id="login_password" class="input" placeholder="Password" required="">
+                <input type="password" name="Password" id="login_password" class="input" placeholder="Password" required="">
 
             </div>
             <button><strong>Login</strong></button>
@@ -31,7 +37,7 @@
 
 
 
-        <form class="form" onsubmit="validateForm(event)">
+        <form asp-action="SignUp" method="post" class="form" onsubmit="validateForm(event)">
             <img src="~/resources/logo.png"  height="90" width="110"/>
 
             <span class="title">Sign Up</span>
@@ -50,11 +56,16 @@
             <button><strong>Sign Up</strong></button>
 
             <span class="bottom_text">Already have an account? <label for="register_toggle" class="swtich">  Sign In</label> </span>
+           
+
         </form>
 
+        
 
     </div>
+
 </div>
+
 
 
  
