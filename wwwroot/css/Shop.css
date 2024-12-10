@@ -19,7 +19,7 @@
     justify-content: center;/*yb2a m7tot horzontally fy nos*/
     align-items: center;/*byzbtha veertically*/
     gap: 10px;/* gap between sizes*/
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent black background */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
     opacity: 0; /* Hidden by default */
     transition: opacity 0.3s ease;
     z-index: 2;/*3l4ane tzhr 2odam elimage m4 wraha*/
@@ -47,7 +47,7 @@ figure:hover .sizes-overlay {
 }
 
 /* Container styling */
-#position {
+#test {
     margin-top: 100px;
     height: 150vh;
 }

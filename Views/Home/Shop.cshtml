@@ -3,11 +3,11 @@
 
 <link rel="stylesheet" href="~/css/Shop.css" />
 
-<div class="container" id="position">
+<div class="container" id="test">
     <div class="row">
       @foreach (var product in Model)
        {
-            <figure class="col-sm-6 col-lg-4">
+            <figure class="col-sm-6 col-lg-4" position-relative>
                 <img src="@product.Image" class="img-fluid rounded" alt="@product.Name not found" width="400" height="500" />
                 <div class="sizes-overlay"id="sizes">
                   <button class="size" onclick="addToCart(38)">38</button>
