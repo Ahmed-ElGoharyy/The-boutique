@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
 <script src="~/js/Login.js"></script>
 
+ 
 
 <div class="container">
 
@@ -11,69 +12,94 @@
     <div class="slider">
 
 
-        <form asp-action="LoginLogic" method="post" class="form" >
 
-            <img src="~/resources/logo.png" height="90" width="110" />
-            <span class="title">Login</span>
-            @if (TempData["ErrorMessage"] != null)
-            {
-                <div id="message" class="error-message">@TempData["ErrorMessage"]</div>
-                TempData.Clear();
+        <!-- Right Section -->
+        <div class="login">
 
-            }
-            @if (TempData["SignUpFailed"] != null)
-            {
-                <div id="message" class="error-message">@TempData["SignUpFailed"]</div>
-                TempData.Clear();
-
-            }
-            @if (TempData["SignUpSuccess"] != null)
-            {
-                <div id="message1" class="error-message">@TempData["SignUpSuccess"]</div>
-                TempData.Clear();
-
-            }
-
-            <div class="form_control">
-                <input type="text" name="Username" id="login_username" class="input" placeholder="Username"  required=""> 
+            <div class="login-left">
+                <img height="725" width="575" src="~/resources/loginimg.jpg" alt="no image" id="1" />
             </div>
 
-            <div class="form_control">
-                <input type="password" name="Password" id="login_password" class="input" placeholder="Password" required="">
+            <div class="login-right">
+                <form asp-action="LoginLogic" method="post" class="login-form">
+                          @if (TempData["ErrorMessage"] != null)
+                          {
+                                <div id="message" class="error-message">@TempData["ErrorMessage"]</div>
+                                TempData.Clear();
 
+                          }
+                          @if (TempData["SignUpFailed"] != null)
+                          {
+                              <div id="message" class="error-message">@TempData["SignUpFailed"]</div>
+                                TempData.Clear();
+
+                          }
+                          @if (TempData["SignUpSuccess"] != null)
+                          {
+                              <div id="message1" class="error-message">@TempData["SignUpSuccess"]</div>
+                                TempData.Clear();
+                          }
+
+                    <h1>Login</h1>
+                    <input type="text" class="input-field" placeholder="Username" required />
+                    <input type="password" class="input-field" placeholder="Password" required />
+
+                    <div class="terms">
+                        <input type="checkbox" id="accept-terms" required />
+                        <label for="accept-terms">Accept Terms & Conditions</label>
+                    </div>
+
+                    <button type="submit" class="btn">Login </button>
+                    <span class="bottom_text">Don't have an account? <label for="register_toggle" class="swtich">Sign Up</label> </span>
+                </form>
             </div>
-            <button><strong>Login</strong></button>
 
-            <span class="bottom_text">Don't have an account? <label for="register_toggle" class="swtich">Sign Up</label> </span>
 
-        </form>
+        </div>
 
 
 
-        <form asp-action="SignUpLogic" method="post" class="form" >
-            <img src="~/resources/logo.png"  height="90" width="110"/>
 
-            <span class="title">Sign Up</span>
-            <div class="form_control">
-                <input type="text" id="signup_username" name="Username" class="input" placeholder="Username" required="">
 
+
+
+
+        <div class="signup-container">
+
+            <!-- Left Section -->
+            <div class="signup-left">
+                <img height="725" width="575" src="~/resources/loginimg.jpg" alt="no image" id="1" />
             </div>
-            <div class="form_control">
-                <input type="email" id="signup_email" class="input" placeholder="Email" required="">
 
+            <!-- Right Section -->
+            <div class="signup-right">
+                <form asp-action="SignUpLogic" method="post" class="signup-form">
+
+                    <h1>Sign Up</h1>
+                    <input type="text" class="input-field" placeholder="Username" required />
+                    <input type="email" class="input-field" placeholder="Email address" required />
+                    <input type="password" class="input-field" placeholder="Password" required />
+
+                    <div class="terms">
+                        <input type="checkbox" id="accept-terms" required />
+                        <label for="accept-terms">Accept Terms & Conditions</label>
+                    </div>
+
+                    <button type="submit" class="btn">Join us</button>
+                    <span class="bottom_text">Already have an account? <label for="register_toggle" class="swtich">  Sign In</label> </span>
+                </form>
             </div>
-            <div class="form_control">
-                <input type="password" id="signup_password" name="Password" class="input" placeholder="Password" required="">
 
-            </div>
-            <button><strong>Sign Up</strong></button>
 
-            <span class="bottom_text">Already have an account? <label for="register_toggle" class="swtich">  Sign In</label> </span>
-           
 
-        </form>
 
-        
+
+        </div>
+
+
+
+
+
 
     </div>
 
@@ -81,7 +107,7 @@
 
 
 
- 
+
 
 
 
