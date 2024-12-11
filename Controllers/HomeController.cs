@@ -38,7 +38,7 @@ namespace trefle888.Controllers
 
         public async Task<IActionResult> Shop()
         {
-            
+           
             var products = await _context.Product.ToListAsync();
            return View(products);
         }
