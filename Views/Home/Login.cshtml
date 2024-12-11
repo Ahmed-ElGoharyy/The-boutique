@@ -22,9 +22,9 @@
 
             <div class="login-right">
                 <form asp-action="LoginLogic" method="post" class="login-form">
-                        
+                         
 
-                    <h1>Login</h1>
+                   <h1> <strong>Login</strong> </h1>
                     @if (TempData["ErrorMessage"] != null)
                     {
                         <div id="message" class="error-message">@TempData["ErrorMessage"]</div>
@@ -42,23 +42,22 @@
                         <div id="message1" class="error-message">@TempData["SignUpSuccess"]</div>
                         TempData.Clear();
                     }
-                    <input type="text" name ="Username" class="input-field" placeholder="Username" required />
-                    <input type="password" name="Password" class="input-field" placeholder="Password" required />
+
+                    <input type="text" class="input-field"  name="Username" placeholder="Username" required />
+                    <input type="password" class="input-field" name="Password" placeholder="Password" required />
 
                     <div class="terms">
                         <input type="checkbox" id="accept-terms" required />
                         <label for="accept-terms">Accept Terms & Conditions</label>
                     </div>
 
-                    <button type="submit" class="btn">Login </button>
+                    <button type="submit" class="btn"><strong> Login </strong> </button>
                     <span class="bottom_text">Don't have an account? <label for="register_toggle" class="swtich">Sign Up</label> </span>
                 </form>
             </div>
 
 
         </div>
-
-
 
 
         <div class="signup-container">
@@ -72,17 +71,17 @@
             <div class="signup-right">
                 <form asp-action="SignUpLogic" method="post" class="signup-form">
 
-                    <h1>Sign Up</h1>
-                    <input type="text" name="username" class="input-field" placeholder="Username" required />
+                    <h1><strong>Sign Up</strong></h1>
+                    <input type="text" class="input-field" placeholder="Username" required />
                     <input type="email" class="input-field" placeholder="Email address" required />
-                    <input type="password" name="password" class="input-field" placeholder="Password" required />
+                    <input type="password" class="input-field" placeholder="Password" required />
 
                     <div class="terms">
                         <input type="checkbox" id="accept-terms" required />
                         <label for="accept-terms">Accept Terms & Conditions</label>
                     </div>
 
-                    <button type="submit" class="btn">Join us</button>
+                    <button type="submit" class="btn"><strong>Join us</strong></button>
                     <span class="bottom_text">Already have an account? <label for="register_toggle" class="swtich">  Sign In</label> </span>
                 </form>
             </div>
