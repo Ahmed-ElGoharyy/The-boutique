@@ -44,7 +44,7 @@ body {
     justify-content: center;
     gap: 50px;
     width: 190%;
-    transition: transform ease-in-out 0.9s;
+    transition: transform ease-in-out 1s;
     position: absolute;
     margin: 0;
 }
@@ -101,6 +101,11 @@ body {
         margin-bottom: 20px;
     }
 
+    h1{
+        margin-bottom:8%;
+
+    }
+
 .input-field {
     width: 100%;
     padding: 12px;
@@ -125,8 +130,8 @@ body {
     margin: 10px 0;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
-    background-color: #333;
+    font-size: 18px;
+    background-color: #716d6d;
     color: #fff;
     cursor: pointer;
 }
@@ -147,20 +152,18 @@ body {
 @media (max-width: 768px) {
 
     .signup-container {
-        flex-direction: column-reverse;
+        flex-direction:column-reverse;
         height: auto;
     }
 
     .login {
         flex-direction: column-reverse;
         height: auto;
+      
     }
 
 
-    .signup-right {
-        flex: none;
-        width: 100%;
-    }
+   
 }
 
 

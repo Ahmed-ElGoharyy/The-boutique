@@ -22,42 +22,42 @@
 
             <div class="login-right">
                 <form asp-action="LoginLogic" method="post" class="login-form">
-                          @if (TempData["ErrorMessage"] != null)
-                          {
-                                <div id="message" class="error-message">@TempData["ErrorMessage"]</div>
-                                TempData.Clear();
+                         
 
-                          }
-                          @if (TempData["SignUpFailed"] != null)
-                          {
-                              <div id="message" class="error-message">@TempData["SignUpFailed"]</div>
-                                TempData.Clear();
+                   <h1> <strong>Login</strong> </h1>
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div id="message" class="error-message">@TempData["ErrorMessage"]</div>
+                        TempData.Clear();
 
-                          }
-                          @if (TempData["SignUpSuccess"] != null)
-                          {
-                              <div id="message1" class="error-message">@TempData["SignUpSuccess"]</div>
-                                TempData.Clear();
-                          }
+                    }
+                    @if (TempData["SignUpFailed"] != null)
+                    {
+                        <div id="message" class="error-message">@TempData["SignUpFailed"]</div>
+                        TempData.Clear();
 
-                    <h1>Login</h1>
-                    <input type="text" class="input-field" placeholder="Username" required />
-                    <input type="password" class="input-field" placeholder="Password" required />
+                    }
+                    @if (TempData["SignUpSuccess"] != null)
+                    {
+                        <div id="message1" class="error-message">@TempData["SignUpSuccess"]</div>
+                        TempData.Clear();
+                    }
+
+                    <input type="text" class="input-field"  name="Username" placeholder="Username" required />
+                    <input type="password" class="input-field" name="Password" placeholder="Password" required />
 
                     <div class="terms">
                         <input type="checkbox" id="accept-terms" required />
                         <label for="accept-terms">Accept Terms & Conditions</label>
                     </div>
 
-                    <button type="submit" class="btn">Login </button>
+                    <button type="submit" class="btn"><strong> Login </strong> </button>
                     <span class="bottom_text">Don't have an account? <label for="register_toggle" class="swtich">Sign Up</label> </span>
                 </form>
             </div>
 
 
         </div>
-
-
 
 
         <div class="signup-container">
@@ -71,7 +71,7 @@
             <div class="signup-right">
                 <form asp-action="SignUpLogic" method="post" class="signup-form">
 
-                    <h1>Sign Up</h1>
+                    <h1><strong>Sign Up</strong></h1>
                     <input type="text" class="input-field" placeholder="Username" required />
                     <input type="email" class="input-field" placeholder="Email address" required />
                     <input type="password" class="input-field" placeholder="Password" required />
@@ -81,7 +81,7 @@
                         <label for="accept-terms">Accept Terms & Conditions</label>
                     </div>
 
-                    <button type="submit" class="btn">Join us</button>
+                    <button type="submit" class="btn"><strong>Join us</strong></button>
                     <span class="bottom_text">Already have an account? <label for="register_toggle" class="swtich">  Sign In</label> </span>
                 </form>
             </div>
