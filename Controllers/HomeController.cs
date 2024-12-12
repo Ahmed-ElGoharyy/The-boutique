@@ -1,6 +1,8 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 using trefle888.Data;
 using trefle888.Migrations.User;
 using trefle888.Models;
@@ -11,7 +13,6 @@ namespace trefle888.Controllers
     {
         private readonly ProductContext _context;
         private readonly UserContext _Ucontext;
-
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ProductContext context, ILogger<HomeController> logger, UserContext ucontext)
@@ -21,16 +22,32 @@ namespace trefle888.Controllers
             _Ucontext = ucontext;
         }
 
+        // Cart-related methods
+        private List<CartItem> GetCartItems()
+        {
+            var cartJson = HttpContext.Session.GetString("CartItems");
+            return cartJson == null
+                ? new List<CartItem>()
+                : JsonSerializer.Deserialize<List<CartItem>>(cartJson);
+        }
 
+        private void SetCartItems(List<CartItem> cartItems)
+        {
+            HttpContext.Session.SetString("CartItems", JsonSerializer.Serialize(cartItems));
+        }
 
+        public IActionResult Cart()
+        {
+            List<CartItem> items = GetCartItems();
+            return View("~/Views/Home/Cart.cshtml", items);
+        }
 
-
+        // Existing methods remain the same
         public IActionResult Index()
         {
             return View();
         }
 
-       
         public IActionResult AboutUs()
         {
             return View();
@@ -38,15 +55,15 @@ namespace trefle888.Controllers
 
         public async Task<IActionResult> Shop()
         {
-           
             var products = await _context.Product.ToListAsync();
-           return View(products);
+            return View(products);
         }
 
         public IActionResult MyAccount()
         {
             return View();
         }
+
         public IActionResult Login()
         {
             return View();
@@ -57,58 +74,44 @@ namespace trefle888.Controllers
         {
             var user = await _Ucontext.Users
              .FirstOrDefaultAsync(u => u.username == Username && u.password == Password);
-
             if (user != null)
             {
                 // Successful login
                 TempData["SuccessMessage"] = user.username;
-
                 TempData.Keep();
-
                 return RedirectToAction("Index", "Home");
             }
             else
-
             {
                 // Login failed
                 TempData["ErrorMessage"] = "Invalid username or password !";
                 return RedirectToAction("Login", "Home"); // Redirect to login page
             }
-
         }
-
-
 
         [HttpPost]
         public async Task<IActionResult> SignUpLogic(string Username, string Password)
         {
             var userr = await _Ucontext.Users
-             .FirstOrDefaultAsync(u => u.username == Username );
-
+             .FirstOrDefaultAsync(u => u.username == Username);
             if (userr != null)
             {
                 // SignUp failed
                 TempData["SignUpFailed"] = "Username already exists!";
-
                 TempData.Keep();
                 return RedirectToAction("Login", "Home"); // Redirect to login page
             }
             else
-
             {
                 // SignUp success
                 TempData["SignUpSuccess"] = "Sign Up Successful!, Please Login";
-
                 var newUser = new Users(Username, Password);
-               
 
                 _Ucontext.Users.Add(newUser);
                 _Ucontext.SaveChanges();
                 return RedirectToAction("Login", "Home"); // Redirect to login page
             }
-
         }
-
 
         public IActionResult Contact()
         {
@@ -119,7 +122,6 @@ namespace trefle888.Controllers
         {
             return RedirectToAction("admin");
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

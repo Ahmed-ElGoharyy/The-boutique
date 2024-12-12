@@ -57,49 +57,73 @@
 </div>
 
 <script>
-    function decrementQuantity(productId, size) {
-        const quantityLabel = document.getElementById(quantity-label-${productId}-${size});
-        let quantity = parseInt(quantityLabel.textContent);
-        if (quantity > 1) {
-            quantity--;
-            quantityLabel.textContent = quantity;
-            updateQuantityOnServer(productId, size, quantity);
-        }
-    }
-
-    function incrementQuantity(productId, size) {
-        const quantityLabel = document.getElementById(quantity-label-${productId}-${size});
-        let quantity = parseInt(quantityLabel.textContent);
-        quantity++;
+function decrementQuantity(productId, size) {
+    const quantityLabel = document.getElementById(`quantity-label-${productId}-${size}`);
+    let quantity = parseInt(quantityLabel.textContent);
+    if (quantity > 1) {
+        quantity--;
         quantityLabel.textContent = quantity;
         updateQuantityOnServer(productId, size, quantity);
+        updateTotals();
+    }
+}
+
+function incrementQuantity(productId, size) {
+    const quantityLabel = document.getElementById(`quantity-label-${productId}-${size}`);
+    let quantity = parseInt(quantityLabel.textContent);
+    quantity++;
+    quantityLabel.textContent = quantity;
+    updateQuantityOnServer(productId, size, quantity);
+    updateTotals();
+}
+
+function updateQuantityOnServer(productId, size, quantity) {
+    fetch('/Cart/UpdateQuantity', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `productId=${productId}&size=${size}&quantity=${quantity}`
+    });
+}
+
+function updateTotals() {
+    const products = document.querySelectorAll('.product');
+    let subtotal = 0;
+
+    products.forEach(product => {
+        const price = parseFloat(product.querySelector('.price.small').textContent.replace('$', ''));
+        const quantity = parseInt(product.querySelector('label[id^="quantity-label"]').textContent);
+        subtotal += price * quantity;
+    });
+
+    const discountElement = document.getElementById('discount');
+    const discountAmount = discountElement.textContent !== '$0.00'
+        ? parseFloat(discountElement.textContent.replace('$', ''))
+        : 0;
+
+    const shippingFee = 4.99;
+    const total = subtotal + shippingFee - discountAmount;
+
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('total-price').textContent = total.toFixed(2);
+}
+
+function applyCoupon(event) {
+    event.preventDefault();
+    const couponInput = document.getElementById("coupon-input");
+    const couponCode = couponInput.value.trim();
+
+    if (couponCode === "AHMKC") {
+        const subtotal = parseFloat(document.getElementById("subtotal").textContent.replace('$', ''));
+        const discount = subtotal * 0.1;
+        const total = subtotal + 4.99 - discount;
+        document.getElementById("discount").textContent = `$${discount.toFixed(2)}`;
+        document.getElementById("total-price").textContent = total.toFixed(2);
+    } else {
+        alert("Invalid coupon code.");
     }
 
-    function updateQuantityOnServer(productId, size, quantity) {
-        fetch('/Cart/UpdateQuantity', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: productId=${productId}&size=${size}&quantity=${quantity}
-        });
-    }
-
-    function applyCoupon(event) {
-        event.preventDefault();
-        const couponInput = document.getElementById("coupon-input");
-        const couponCode = couponInput.value.trim();
-
-        if (couponCode === "AHMKC") {
-            const subtotal = parseFloat(document.getElementById("subtotal").textContent.replace('$', ''));
-            const discount = subtotal * 0.1;
-            const total = subtotal + 4.99 - discount; // Added shipping fee to total
-            document.getElementById("discount").textContent = $${discount.toFixed(2)};
-            document.getElementById("total-price").textContent = total.toFixed(2);
-        } else {
-            alert("Invalid coupon code.");
-        }
-
-        couponInput.value = "";
-    }
+    couponInput.value = "";
+}
 </script>
