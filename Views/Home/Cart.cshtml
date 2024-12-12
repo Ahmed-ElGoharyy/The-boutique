@@ -1,37 +1,41 @@
-﻿<link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
+﻿@model List<trefle888.Models.CartItem>
+
+<link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
 <div class="master-container">
     <div class="card cart">
         <label class="title">Your cart</label>
         <div class="products">
-            <div class="product">
-             
-                <div>
-                    <span>Suit 1</span>
-                    <p>Size: Small</p>
+            @foreach (var item in Model)
+            {
+                <div class="product">
+                    <div>
+                        <span>@item.ProductName</span>
+                        <p>Size: @item.Size</p>
+                    </div>
+                    <div class="quantity">
+                        <button onclick="decrementQuantity(@item.ProductId, @item.Size)">
+                            <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M20 12L4 12"></path>
+                            </svg>
+                        </button>
+                        <label id="quantity-label-@item.ProductId-@item.Size">@item.Quantity</label>
+                        <button onclick="incrementQuantity(@item.ProductId, @item.Size)">
+                            <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M12 4V20M20 12H4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <label class="price small">$@item.ProductPrice.ToString("0.00")</label>
                 </div>
-                <div class="quantity">
-                    <button>
-                        <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M20 12L4 12"></path>
-                        </svg>
-                    </button>
-                    <label>2</label>
-                    <button>
-                        <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M12 4V20M20 12H4"></path>
-                        </svg>
-                    </button>
-                </div>
-                <label class="price small">$23.99</label>
-            </div>
+            }
         </div>
     </div>
 
     <div class="card coupons">
         <label class="title">Apply coupons</label>
-        <form class="form">
-            <input type="text" placeholder="Apply your coupons here" class="input_field">
-            <button>Apply</button>
+        <form class="form" onsubmit="applyCoupon(event)">
+            <input type="text" placeholder="Apply your coupons here" class="input_field" id="coupon-input">
+            <button type="submit">Apply</button>
         </form>
     </div>
 
@@ -39,15 +43,63 @@
         <label class="title">Checkout</label>
         <div class="details">
             <span>Your cart subtotal:</span>
-            <span>47.99$</span>
+            <span id="subtotal">$@Model.Sum(item => item.ProductPrice * item.Quantity).ToString("0.00")</span>
             <span>Discount through applied coupons:</span>
-            <span>3.99$</span>
+            <span id="discount">$0.00</span>
             <span>Shipping fees:</span>
-            <span>4.99$</span>
+            <span>$4.99</span>
         </div>
         <div class="checkout--footer">
-            <label class="price"><sup>$</sup>57.99</label>
+            <label class="price"><sup>$</sup><span id="total-price">@Model.Sum(item => item.ProductPrice * item.Quantity).ToString("0.00")</span></label>
             <button class="checkout-btn">Checkout</button>
         </div>
     </div>
 </div>
+
+<script>
+    function decrementQuantity(productId, size) {
+        const quantityLabel = document.getElementById(quantity-label-${productId}-${size});
+        let quantity = parseInt(quantityLabel.textContent);
+        if (quantity > 1) {
+            quantity--;
+            quantityLabel.textContent = quantity;
+            updateQuantityOnServer(productId, size, quantity);
+        }
+    }
+
+    function incrementQuantity(productId, size) {
+        const quantityLabel = document.getElementById(quantity-label-${productId}-${size});
+        let quantity = parseInt(quantityLabel.textContent);
+        quantity++;
+        quantityLabel.textContent = quantity;
+        updateQuantityOnServer(productId, size, quantity);
+    }
+
+    function updateQuantityOnServer(productId, size, quantity) {
+        fetch('/Cart/UpdateQuantity', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: productId=${productId}&size=${size}&quantity=${quantity}
+        });
+    }
+
+    function applyCoupon(event) {
+        event.preventDefault();
+        const couponInput = document.getElementById("coupon-input");
+        const couponCode = couponInput.value.trim();
+
+        if (couponCode === "AHMKC") {
+            const subtotal = parseFloat(document.getElementById("subtotal").textContent.replace('$', ''));
+            const discount = subtotal * 0.1;
+            const total = subtotal + 4.99 - discount; // Added shipping fee to total
+            document.getElementById("discount").textContent = $${discount.toFixed(2)};
+            document.getElementById("total-price").textContent = total.toFixed(2);
+        } else {
+            alert("Invalid coupon code.");
+        }
+
+        couponInput.value = "";
+    }
+</script>

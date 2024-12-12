@@ -47,19 +47,10 @@ namespace trefle888.Controllers
         {
             return View();
         }
-
-        public IActionResult Cart()
-        {
-            return View();    
-
-        }
-
         public IActionResult Login()
         {
             return View();
         }
-        
-
 
         [HttpPost]
         public async Task<IActionResult> LoginLogic(string Username, string Password)

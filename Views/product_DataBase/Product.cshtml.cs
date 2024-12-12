@@ -1,7 +1,4 @@
-﻿using trefle888.Data;
-using trefle888.Models;
-
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using trefle888.Data;
 using trefle888.Models;
