@@ -102,13 +102,13 @@ button {
         transform: translate3d(100%, 0, 0);
     }
 
-    #success-alert{
-        background-color:#89c69a;
-        width:25%;
-        height:5%;
-        left:75%;
-        bottom:30%;
-        font-size:medium;
-        opacity:0.7;
-    }
+#success-alert {
+    background-color: #bfe1c9;
+    width: 25%;
+    height: 5%;
+    left: 75%;
+    bottom: 30%;
+    font-size: medium;
+    opacity: 0.7;
+}
 
