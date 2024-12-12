@@ -7,28 +7,32 @@
         <div class="products">
             @foreach (var item in Model)
             {
-                <div class="product">
+                <div id="product-@item.ProductId-@item.Size" class="product">
                     <div>
                         <span>@item.ProductName</span>
                         <p>Size: @item.Size</p>
                     </div>
                     <div class="quantity">
-                        <button onclick="decrementQuantity(@item.ProductId, @item.Size)">
+                        <button onclick="decrementQuantity(@item.ProductId, '@item.Size')" class="decrement-btn">
                             <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M20 12L4 12"></path>
                             </svg>
                         </button>
                         <label id="quantity-label-@item.ProductId-@item.Size">@item.Quantity</label>
-                        <button onclick="incrementQuantity(@item.ProductId, @item.Size)">
+                        <button onclick="incrementQuantity(@item.ProductId, '@item.Size')" class="increment-btn">
                             <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M12 4V20M20 12H4"></path>
                             </svg>
                         </button>
+                        <button onclick="removeFromCart(@item.ProductId, '@item.Size')" class="remove-btn" style="display: none;">
+                            <span>🗑️</span>
+                        </button>
                     </div>
+
                     <label class="price small">$@item.ProductPrice.ToString("0.00")</label>
                 </div>
             }
-        </div>
+          </div>
     </div>
 
     <div class="card coupons">
@@ -57,73 +61,98 @@
 </div>
 
 <script>
-function decrementQuantity(productId, size) {
-    const quantityLabel = document.getElementById(`quantity-label-${productId}-${size}`);
-    let quantity = parseInt(quantityLabel.textContent);
-    if (quantity > 1) {
+    function decrementQuantity(productId, size) {
+      const quantityLabel = document.getElementById(`quantity-label-${productId}-${size}`);
+      let quantity = parseInt(quantityLabel.textContent);
+
+      if (quantity === 1) {
+        removeFromCart(productId, size);
+      } else {
         quantity--;
         quantityLabel.textContent = quantity;
         updateQuantityOnServer(productId, size, quantity);
         updateTotals();
+      }
     }
-}
 
-function incrementQuantity(productId, size) {
-    const quantityLabel = document.getElementById(`quantity-label-${productId}-${size}`);
-    let quantity = parseInt(quantityLabel.textContent);
-    quantity++;
-    quantityLabel.textContent = quantity;
-    updateQuantityOnServer(productId, size, quantity);
-    updateTotals();
-}
+    function incrementQuantity(productId, size) {
+      const quantityLabel = document.getElementById(`quantity-label-${productId}-${size}`);
+      let quantity = parseInt(quantityLabel.textContent);
+      quantity++;
+      quantityLabel.textContent = quantity;
+      updateQuantityOnServer(productId, size, quantity);
+      updateTotals();
+    }
 
-function updateQuantityOnServer(productId, size, quantity) {
-    fetch('/Cart/UpdateQuantity', {
+    function updateQuantityOnServer(productId, size, quantity) {
+      fetch('/Cart/UpdateQuantity', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: `productId=${productId}&size=${size}&quantity=${quantity}`
-    });
-}
+      });
+    }
 
-function updateTotals() {
-    const products = document.querySelectorAll('.product');
-    let subtotal = 0;
+    function updateTotals() {
+      const products = document.querySelectorAll('.product');
+      let subtotal = 0;
 
-    products.forEach(product => {
+      products.forEach(product => {
         const price = parseFloat(product.querySelector('.price.small').textContent.replace('$', ''));
         const quantity = parseInt(product.querySelector('label[id^="quantity-label"]').textContent);
         subtotal += price * quantity;
-    });
+      });
 
-    const discountElement = document.getElementById('discount');
-    const discountAmount = discountElement.textContent !== '$0.00'
+      const discountElement = document.getElementById('discount');
+      const discountAmount = discountElement.textContent !== '$0.00'
         ? parseFloat(discountElement.textContent.replace('$', ''))
         : 0;
 
-    const shippingFee = 4.99;
-    const total = subtotal + shippingFee - discountAmount;
+      const shippingFee = 4.99;
+      const total = subtotal + shippingFee - discountAmount;
 
-    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById('total-price').textContent = total.toFixed(2);
-}
+      document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('total-price').textContent = total.toFixed(2);
+    }
 
-function applyCoupon(event) {
-    event.preventDefault();
-    const couponInput = document.getElementById("coupon-input");
-    const couponCode = couponInput.value.trim();
+    function applyCoupon(event) {
+      event.preventDefault();
+      const couponInput = document.getElementById("coupon-input");
+      const couponCode = couponInput.value.trim();
 
-    if (couponCode === "AHMKC") {
+      if (couponCode === "AHMKC") {
         const subtotal = parseFloat(document.getElementById("subtotal").textContent.replace('$', ''));
         const discount = subtotal * 0.1;
         const total = subtotal + 4.99 - discount;
         document.getElementById("discount").textContent = `$${discount.toFixed(2)}`;
         document.getElementById("total-price").textContent = total.toFixed(2);
-    } else {
+      } else {
         alert("Invalid coupon code.");
+      }
+
+      couponInput.value = "";
     }
 
-    couponInput.value = "";
-}
+    function removeFromCart(productId, size) {
+      fetch('/Cart/RemoveFromCart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `productId=${productId}&size=${size}`
+      })
+      .then(response => {
+        if (response.ok) {
+          const productElement = document.getElementById(`product-${productId}-${size}`);
+          productElement.remove();
+
+          updateTotals();
+
+          alert('Item removed from cart.');
+        } else {
+          alert('Failed to remove the item from the cart.');
+        }
+      });
+    }
 </script>

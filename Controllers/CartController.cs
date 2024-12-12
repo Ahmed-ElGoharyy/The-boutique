@@ -83,29 +83,25 @@ namespace trefle888.Controllers
         }
 
         [HttpPost]
-        public IActionResult RemoveFromCart(int productId, int size)
-        {
-            List<CartItem> cartItems = GetCartItems();
-            cartItems.RemoveAll(item =>
-                item.ProductId == productId && item.Size == size);
-
-            SetCartItems(cartItems);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
         public IActionResult UpdateQuantity(int productId, int size, int quantity)
         {
-            List<CartItem> cartItems = GetCartItems();
-            var item = cartItems.FirstOrDefault(i =>
-                i.ProductId == productId && i.Size == size);
+            var cartItems = GetCartItems();
+            var item = cartItems.FirstOrDefault(x => x.ProductId == productId && x.Size == size);
             if (item != null)
             {
                 item.Quantity = quantity;
-                SetCartItems(cartItems);
-                return Json(new { success = true });
             }
-            return Json(new { success = false });
+            SetCartItems(cartItems);
+            return Json(new { success = true });
+        }
+
+        [HttpPost]
+        public IActionResult RemoveFromCart(int productId, int size)
+        {
+            var cartItems = GetCartItems();
+            cartItems.RemoveAll(x => x.ProductId == productId && x.Size == size);
+            SetCartItems(cartItems);
+            return Json(new { success = true });
         }
 
         private List<CartItem> GetCartItems()
