@@ -285,3 +285,15 @@
     }
   
 }
+
+
+#success-alert {
+    background-color: #bfe1c9;
+    width: 40%;
+    height: 10%;
+    margin-top: 7%;
+    margin-left: 30%;
+    position: center;
+    font-size: medium;
+    opacity: 0.9;
+}

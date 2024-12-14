@@ -1,7 +1,17 @@
 ﻿@model List<trefle888.Models.CartItem>
 
 <link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
+
+<div class="alert alert-success alert-dismissible fade d-none text-capitalize text-center" role="alert" id="success-alert">
+    <h5 class="alert-heading">Order Placed successfully!</h5>
+    <hr />
+    <p>Trefle-8 team will be there from 3-5 working day</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
 <div class="master-container">
+    
     <div class="card cart">
         <label class="title">Your cart</label>
         <div class="products">
@@ -59,6 +69,52 @@
         </div>
     </div>
 </div>
+ 
+
+
+
+
+
+<script>
+// Function to show the success alert
+function showSuccessAlert() {
+    const successAlert = document.getElementById('success-alert');
+    successAlert.classList.remove('d-none');
+
+    // Disable the checkout button after showing the alert
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    checkoutBtn.disabled = true;
+    checkoutBtn.style.opacity = '0.5';
+    checkoutBtn.style.cursor = 'not-allowed';
+}
+
+// Function to close the alert
+function closeAlert() {
+    const successAlert = document.getElementById('success-alert');
+    successAlert.classList.add('d-none');
+}
+
+// Attach event listener to the checkout button
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    const closeBtn = document.querySelector('.btn-close');
+
+    // Checkout button click handler
+    checkoutBtn.addEventListener('click', (event) => {
+        // Prevent multiple clicks
+        if (!checkoutBtn.disabled) {
+            // Here you would typically add actual checkout logic
+            // For example, sending order to server, processing payment, etc.
+            showSuccessAlert();
+        }
+    });
+
+    // Close button event listener
+    closeBtn.addEventListener('click', closeAlert);
+});
+
+</script>
+
 
 <script>
     let activeCouponCode = '';

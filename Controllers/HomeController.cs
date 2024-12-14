@@ -53,10 +53,16 @@ namespace trefle888.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Shop()
+        public async Task<IActionResult> Shop(string category)
         {
-            var products = await _context.Product.ToListAsync();
-            return View(products);
+            var products = _context.Product.AsQueryable();
+            if (!string.IsNullOrEmpty(category))
+            {
+                products = products.Where(p => p.Category == category);
+            }
+                
+
+            return View(products.ToList());
         }
 
         public IActionResult MyAccount()
