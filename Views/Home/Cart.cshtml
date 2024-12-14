@@ -3,9 +3,9 @@
 <link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
 
 <div class="alert alert-success alert-dismissible fade d-none text-capitalize text-center" role="alert" id="success-alert">
-    <h5 class="alert-heading">Order Placed successfully!</h5>
+    <h5 class="alert-heading">Order Placed Successfully!</h5>
     <hr />
-    <p>Trefle-8 team will be there from 3-5 working day</p>
+    <p>Trefle-8 team will be there from 3-5 working days</p>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
@@ -15,7 +15,7 @@
     <div class="card cart">
         <label class="title">Your cart</label>
         <div class="products">
-            @foreach (var item in Model)
+            @foreach (var item in Model) 
             {
                 <div id="product-@item.ProductId-@item.Size" class="product">
                     <div>
@@ -35,7 +35,6 @@
                             </svg>
                         </button>
                         <button onclick="removeFromCart(@item.ProductId, '@item.Size')" class="remove-btn" style="display: none;">
-                            <span>🗑️</span>
                         </button>
                     </div>
 
@@ -64,7 +63,7 @@
             <span id="shipping-fee">$4.99</span>
         </div>
         <div class="checkout--footer">
-            <label class="price"><sup>$</sup><span id="total-price">@Model.Sum(item => item.ProductPrice * item.Quantity).ToString("0.00")</span></label>
+            <label class="price"><sup>$</sup><span id="total-price">@Model.Sum(item => item.ProductPrice * item.Quantity + 4.99).ToString("0.00")</span></label>
             <button class="checkout-btn">Checkout</button>
         </div>
     </div>
@@ -86,6 +85,7 @@ function showSuccessAlert() {
     checkoutBtn.disabled = true;
     checkoutBtn.style.opacity = '0.5';
     checkoutBtn.style.cursor = 'not-allowed';
+
 }
 
 // Function to close the alert
