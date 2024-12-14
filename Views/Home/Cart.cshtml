@@ -42,7 +42,7 @@
                     <label class="price small">$@item.ProductPrice.ToString("0.00")</label>
                 </div>
             }
-          </div>
+        </div>
     </div>
 
     <div class="card coupons">
@@ -60,8 +60,8 @@
             <span id="subtotal">$@Model.Sum(item => item.ProductPrice * item.Quantity).ToString("0.00")</span>
             <span>Discount through applied coupons:</span>
             <span id="discount">$0.00</span>
-            <span>Shipping fees:</span>
-            <span>$4.99</span>
+            <span id="shipping-label">Shipping fees:</span>
+            <span id="shipping-fee">$4.99</span>
         </div>
         <div class="checkout--footer">
             <label class="price"><sup>$</sup><span id="total-price">@Model.Sum(item => item.ProductPrice * item.Quantity).ToString("0.00")</span></label>
@@ -117,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 <script>
+    let activeCouponCode = '';
+
     function decrementQuantity(productId, size) {
       const quantityLabel = document.getElementById(`quantity-label-${productId}-${size}`);
       let quantity = parseInt(quantityLabel.textContent);
@@ -160,16 +162,32 @@ document.addEventListener('DOMContentLoaded', () => {
         subtotal += price * quantity;
       });
 
-      const discountElement = document.getElementById('discount');
-      const discountAmount = discountElement.textContent !== '$0.00'
-        ? parseFloat(discountElement.textContent.replace('$', ''))
-        : 0;
+      // If no products in cart, reset coupon and shipping
+      if (products.length === 0) {
+        document.getElementById('discount').textContent = '$0.00';
+        document.getElementById('shipping-fee').textContent = '$0.00';
+        document.getElementById('shipping-label').style.display = 'none';
+        document.getElementById('total-price').textContent = '0.00';
+        activeCouponCode = '';
+      } else {
+        const shippingFee = 4.99;
+        document.getElementById('shipping-fee').textContent = `$${shippingFee.toFixed(2)}`;
+        document.getElementById('shipping-label').style.display = 'inline';
 
-      const shippingFee = 4.99;
-      const total = subtotal + shippingFee - discountAmount;
+        // Reapply coupon if there was an active coupon
+        if (activeCouponCode === 'AHMKC') {
+          const discount = subtotal * 0.1;
+          const total = subtotal + shippingFee - discount;
+          document.getElementById('discount').textContent = `$${discount.toFixed(2)}`;
+          document.getElementById('total-price').textContent = total.toFixed(2);
+        } else {
+          document.getElementById('discount').textContent = '$0.00';
+          const total = subtotal + shippingFee;
+          document.getElementById('total-price').textContent = total.toFixed(2);
+        }
 
-      document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-      document.getElementById('total-price').textContent = total.toFixed(2);
+        document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      }
     }
 
     function applyCoupon(event) {
@@ -178,19 +196,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const couponCode = couponInput.value.trim();
 
       if (couponCode === "AHMKC") {
+        activeCouponCode = couponCode;
         const subtotal = parseFloat(document.getElementById("subtotal").textContent.replace('$', ''));
         const discount = subtotal * 0.1;
-        const total = subtotal + 4.99 - discount;
+        const shippingFee = 4.99;
+        const total = subtotal + shippingFee - discount;
         document.getElementById("discount").textContent = `$${discount.toFixed(2)}`;
         document.getElementById("total-price").textContent = total.toFixed(2);
       } else {
         alert("Invalid coupon code.");
+        activeCouponCode = '';
+        updateTotals(); // Reset to original total
       }
 
       couponInput.value = "";
     }
 
-    function removeFromCart(productId, size) {
+       function removeFromCart(productId, size) {
       fetch('/Cart/RemoveFromCart', {
         method: 'POST',
         headers: {
@@ -204,6 +226,17 @@ document.addEventListener('DOMContentLoaded', () => {
           productElement.remove();
 
           updateTotals();
+
+          // Additional check to reset everything if cart is now empty
+          const remainingProducts = document.querySelectorAll('.product');
+          if (remainingProducts.length === 0) {
+            document.getElementById('subtotal').textContent = '$0.00';
+            document.getElementById('discount').textContent = '$0.00';
+            document.getElementById('shipping-fee').textContent = '$0.00';
+            document.getElementById('shipping-label').style.display = 'none';
+            document.getElementById('total-price').textContent = '0.00';
+            activeCouponCode = '';
+          }
 
           alert('Item removed from cart.');
         } else {
