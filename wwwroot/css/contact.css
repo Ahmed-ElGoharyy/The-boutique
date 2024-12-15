@@ -14,8 +14,8 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
-    margin-left:30%;
-    margin-top:15%;
+    margin-left:35%;
+    margin-top:6%;
 }
 
     .form .title {
@@ -50,7 +50,7 @@
     }
 
 /* From Uiverse.io by BHARGAVPATEL1244 */
-button {
+#button1 {
     outline: none;
     cursor: pointer;
     border: none;
@@ -69,18 +69,18 @@ button {
     color: ghostwhite;
 }
 
-    button span {
+    #button1 span {
         position: relative;
         z-index: 10;
         transition: color 0.4s;
     }
 
-    button:hover span {
+    #button1:hover span {
         color: #0060cb;
     }
 
-    button::before,
-    button::after {
+    #button1::before,
+    #button1::after {
         position: absolute;
         top: 0;
         left: 0;
@@ -89,7 +89,7 @@ button {
         z-index: 0;
     }
 
-    button::before {
+    #button1::before {
         content: "";
         background: #0060cb;
         width: 120%;
@@ -98,7 +98,7 @@ button {
         transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
     }
 
-    button:hover::before {
+    #button1:hover::before {
         transform: translate3d(100%, 0, 0);
     }
 
