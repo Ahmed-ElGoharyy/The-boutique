@@ -4,7 +4,7 @@
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right,#808080,#000000);
     color: #333;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -13,14 +13,16 @@
     justify-content: center;
     align-items: center;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 150px auto; 
-    height: 700px;
+    margin-right:140px;
+    height: 600px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     position: relative;
+    
 }
 
 .login {
@@ -28,14 +30,17 @@
     justify-content: center;
     align-items: center;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 150px 50px auto;
-    height: 700px;
+    margin-right:265px;
+    margin-left:50px;
+    height: 600px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     position: relative;
+    
 }
 
 
