@@ -79,6 +79,7 @@
 function showSuccessAlert() {
     const successAlert = document.getElementById('success-alert');
     successAlert.classList.remove('d-none');
+     cartItems.RemoveAll(x => x.ProductId == productId && x.Size == size);
 
     // Disable the checkout button after showing the alert
     const checkoutBtn = document.querySelector('.checkout-btn');
@@ -98,13 +99,12 @@ function closeAlert() {
 document.addEventListener('DOMContentLoaded', () => {
     const checkoutBtn = document.querySelector('.checkout-btn');
     const closeBtn = document.querySelector('.btn-close');
-
+    
     // Checkout button click handler
     checkoutBtn.addEventListener('click', (event) => {
         // Prevent multiple clicks
         if (!checkoutBtn.disabled) {
-            // Here you would typically add actual checkout logic
-            // For example, sending order to server, processing payment, etc.
+           
             showSuccessAlert();
         }
     });

@@ -1,25 +1,36 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿document.addEventListener('DOMContentLoaded', () => {
+    const logoLink = document.getElementById('homeLogoButton');
+    const transitionPage = document.getElementById('transitionPage');
 
-// Write your JavaScript code.
+    // Ensure transition page is hidden initially
+    if (transitionPage) {
+        transitionPage.classList.remove('show');
+    }
 
-const logoLink = document.getElementById('homeLogoButton');
-const transitionPage = document.getElementById('transitionPage');
+    // Logo click handler
+    if (logoLink) {
+        logoLink.addEventListener('click', (event) => {
+            event.preventDefault();
 
-logoLink.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent default link behavior
+            if (transitionPage) {
+                // Show transition page
+                transitionPage.classList.add('show');
 
-    transitionPage.classList.remove('hidden');
-
-    setTimeout(() => {
-     
-        // Redirect to the homepage after the transition
-        window.location.href = "/";
-
-    }, 1500); // Adjust the delay as needed
- 
+                // Redirect after a short delay
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 1000);
+            }
+        });
+    }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const navbarDropdown = document.getElementById('navbarDropdown');
 
-
-
-
+    // Ensure dropdown opens/closes properly
+    navbarDropdown.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        const parent = navbarDropdown.closest('.dropdown');
+        parent.classList.toggle('show');
+    });
+});
