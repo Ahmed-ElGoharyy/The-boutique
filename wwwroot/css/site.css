@@ -35,7 +35,7 @@ body {
 }
 
 /* Mobile Responsive */
-@media (max-width: 1199.98px) {
+@media (max-width: 1400.98px) {
     .navbar-collapse {
         max-height: 80vh;
         overflow-y: auto;
@@ -59,7 +59,7 @@ body {
 }
 
 /* Mobile-specific adjustment */
-@media (max-width: 1199.98px) {
+@media (max-width: 1399.98px) {
     .navbar-collapse {
         top: 95px; /* Slightly larger value for smaller screens */
     }
@@ -86,7 +86,7 @@ body {
 }
 
 /* Adjust dropdown menu for smaller screens */
-@media (max-width: 767.98px) {
+@media (max-width: 1100.98px) {
     .dropdown-menu-center {
         position: static;
         transform: none;
@@ -113,8 +113,26 @@ body {
     }
 
 #transitionLogo {
-    max-width: 200px;
-    max-height: 200px;
-    width: auto;
-    height: auto;
+    height:30%;
+    width:19%;
+    animation: fadeIn 2s;
+}
+
+/* Logo Fade-In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95); /* Start slightly smaller */
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End with normal size */
+    }
+}
+
+.logo {
+    opacity: 0; /* Initially invisible */
+    animation: fadeIn 2s ease-in-out ; /* 3s duration for smoother transition */
 }
