@@ -2,25 +2,19 @@
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #808080, #000000);
+    background: linear-gradient(to right,#808080,#000000);
     color: #333;
-}
-
-/* Container */
-.container {
-    width: 100%;
     overflow: hidden;
 }
 
-/* Main Signup/Login Container */
-.signup-container,
-.login {
+
+.signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    margin: 150px auto;
+    margin: 150px auto; 
     height: 700px;
     background-color: #fff;
     border-radius: 12px;
@@ -29,8 +23,44 @@
     position: relative;
 }
 
-/* Right and Left Section */
-.signup-right, .login-right {
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 150px 50px auto;
+    height: 700px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+
+.container .slider {
+    display: flex;
+    justify-content: center;
+    width: 175%;
+    transition: transform ease-in-out 1s;
+    position: absolute;
+    margin:0;
+   
+}
+
+
+#register_toggle {
+    display: none;
+}
+
+.container #register_toggle:checked + .slider {
+    transform: translateX(-50%);
+        
+}
+
+
+.signup-right {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -38,15 +68,34 @@
     padding: 30px;
 }
 
-/* Forms */
-.signup-form, .login-form {
+.login-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.signup-form {
     width: 100%;
     max-width: 400px;
     text-align: center;
 }
 
-    /* Headers */
-    .signup-form h2, .login-form h2 {
+    .signup-form h2 {
+        font-size: 26px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+    .login-form h2 {
         font-size: 26px;
         color: #333;
         margin-bottom: 20px;
@@ -56,7 +105,6 @@ h1 {
     margin-bottom: 8%;
 }
 
-/* Input Fields */
 .input-field {
     width: 100%;
     padding: 12px;
@@ -64,7 +112,6 @@ h1 {
     font-size: 16px;
 }
 
-/* Terms */
 .terms {
     margin: 15px 0;
     font-size: 14px;
@@ -75,7 +122,6 @@ h1 {
         margin-left: 5px;
     }
 
-/* Buttons */
 .btn {
     display: block;
     width: 100%;
@@ -89,18 +135,34 @@ h1 {
     cursor: pointer;
 }
 
+
+
     .btn:hover {
         background-color: #555;
-        
     }
 
-/* Switch between SignUp/Login */
+
+
 .bottom_text .swtich {
     font-weight: 700;
     cursor: pointer;
 }
 
-/* Error Message */
+
+
+@media (max-width: 1400px) {
+
+    .signup-container {
+        flex-direction: column-reverse;
+        height: auto;
+    }
+
+    .login {
+        flex-direction:column-reverse;
+        height: auto;
+    }
+}
+
 .error-message {
     color: #ff3333;
     font-size: 12px;
@@ -111,78 +173,17 @@ h1 {
     border-color: #ff3333;
 }
 
-#message,
-#message1 {
+#message {
     font-size: larger;
     font-weight: 600;
     margin-left: 0%;
 }
 
 #message1 {
-    color: #256505;
+    font-size: larger;
+    font-weight: 600;
+    margin-left: 0%;
+    color: #256505
 }
 
-/* Slider for transitions */
-.container .slider {
-    display: flex;
-    justify-content: center;
-    width: 190%;
-    transition: transform ease-in-out 1s;
-    position: absolute;
-    margin: 0;
-}
 
-#register_toggle {
-    display: none;
-}
-
-.container #register_toggle:checked + .slider {
-    transform: translateX(-50%);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .signup-container,
-    .login {
-        flex-direction: column-reverse;
-        height: auto;
-    }
-
-    .signup-right, .login-right {
-        padding: 20px;
-    }
-
-    .input-field {
-        font-size: 14px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    .signup-form, .login-form {
-        max-width: 100%;
-    }
-
-    /* Adjust images to be responsive */
-    .signup-left img, .login-left img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-}
-
-/* Further Adjustments for smaller devices */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 20px;
-    }
-
-    .btn {
-        font-size: 16px;
-    }
-
-    .terms {
-        font-size: 12px;
-    }
-}
