@@ -29,7 +29,7 @@ body {
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    margin: 150px 50px auto; /* Space from the top */
+    margin: 150px 50px auto; 
     height: 700px;
     background-color: #fff;
     border-radius: 12px;
@@ -37,12 +37,11 @@ body {
     overflow: hidden;
     position: relative;
 }
-
+    
 
 .container .slider {
     display: flex;
     justify-content: center;
-    gap: 50px;
     width: 190%;
     transition: transform ease-in-out 1s;
     position: absolute;
@@ -119,9 +118,9 @@ body {
     color: #555;
 }
 
-    .terms label {
+ .terms label {
         margin-left: 5px;
-    }
+ }
 
 .btn {
     display: block;
@@ -148,6 +147,8 @@ body {
     font-weight: 700;
     cursor: pointer;
 }
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
@@ -162,11 +163,7 @@ body {
       
     }
 
-
-   
 }
-
-
 
 .error-message {
     color: #ff3333;
