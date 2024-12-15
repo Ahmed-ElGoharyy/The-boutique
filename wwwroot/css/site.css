@@ -10,7 +10,6 @@ html {
 
 body {
     margin: 0;
-    padding-top: 120px; /* Adjust based on navbar height */
     min-height: 100vh;
     display: flex;
     flex-direction: column;

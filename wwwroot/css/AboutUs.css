@@ -78,7 +78,6 @@
     min-height: 80%;
     height: 190vh; /* Full height of the viewport */
 
-    animation: fadeIn 2s ease-in-out;
     overflow-x: hidden;
     overflow-y: hidden; /* This will prevent horizontal scrolling */
 }
